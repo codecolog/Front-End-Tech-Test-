@@ -22,5 +22,5 @@ Run `nx build swipe-jobs` to build the project. The build artifacts will be stor
 - Uses axios mock API adapter with fake-db to allow development even when backend is unreachable (Set line 6 to true in fake-db/index.ts to enable)
 - Integrated material UI theming to allow creating themes. Ships with two themes, light and dark. Click on user name in header to toggle theme
 - Uses custom routing implementation to allow fine grain control over routing and lazy loaded components
-- User custom generated font-family for icons
+- Uses custom generated font-family for icons
 - Has auth guard to protect routes
