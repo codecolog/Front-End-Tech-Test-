@@ -1,0 +1,74 @@
+{
+  "root": "apps/swipe-jobs",
+  "sourceRoot": "apps/swipe-jobs/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "runtimeChunk": false,
+        "outputPath": "dist/apps/swipe-jobs",
+        "index": "apps/swipe-jobs/src/index.html",
+        "baseHref": "/",
+        "main": "apps/swipe-jobs/src/main.tsx",
+        "polyfills": "apps/swipe-jobs/src/polyfills.ts",
+        "tsConfig": "apps/swipe-jobs/tsconfig.app.json",
+        "assets": [
+          "apps/swipe-jobs/src/favicon.ico",
+          "apps/swipe-jobs/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/swipe-jobs/src/environments/environment.ts",
+              "with": "apps/swipe-jobs/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "swipe-jobs:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "swipe-jobs:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/swipe-jobs/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/swipe-jobs"],
+      "options": {
+        "jestConfig": "apps/swipe-jobs/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/swipe-jobs-e2e",
+  "sourceRoot": "apps/swipe-jobs-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/swipe-jobs-e2e/cypress.json",
+        "devServerTarget": "swipe-jobs:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "swipe-jobs:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/swipe-jobs-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["swipe-jobs"]
+}
